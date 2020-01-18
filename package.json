@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-express-form",
+  "version": "1.0.0",
+  "description": "Envio y procesamiento de datos de un formulario",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpuche/nodejs-express-form.git"
+  },
+  "keywords": [
+    "nodejs",
+    "form"
+  ],
+  "author": "Carlos Puche",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cpuche/nodejs-express-form/issues"
+  },
+  "homepage": "https://github.com/cpuche/nodejs-express-form#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
+  }
+}
