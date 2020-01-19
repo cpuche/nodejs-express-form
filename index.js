@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const router = express.Router();
 const multer = require("multer")();
+const ejs = require('ejs');
+const port = 3000;
 
 var app = express();
 
@@ -10,17 +12,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // multipart/form-data
 app.use(multer.array());
-
 app.use(router);
+app.use(express.static(`${__dirname}/public`));
+app.engine('html', ejs.renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/public');
 
 router.get("/", (req, res) => {
-    res.send(req.query);
+    res.render('index');
 });
 
-router.post("/", (req, res) => {
-    res.send(req.body);
+router.post("/submit", (req, res) => {
+    res.render('response', { name: req.body.name });
 });
 
-app.listen(3000);
+app.listen(port);
 
-console.log("La aplicación esta eschuchando en http://localhost:3000");
+console.log(`Application started - http://localhost:${port}`);
